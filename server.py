@@ -3,11 +3,17 @@ from flask import json
 import pprint
 
 
+# test server for HelpDesk App on the same network
+# turn off data 
+# host on 0.0.0.0 to allow detection on network
+
+
+
 
 app = Flask(__name__)
 
 @app.route('/api', methods=['POST'])
-def hello_world():
+def api():
     if request.headers['Content-Type'] == 'application/json':
         if request.method == 'POST':      
             data = json.dumps(request.json)
@@ -21,7 +27,7 @@ def hello_world():
 
 
 @app.route('/api/hello', methods=['GET','POST'])
-def hello():
+def api_hello():
     if request.method == 'GET':
     
         return "Hello From Flask!!"
